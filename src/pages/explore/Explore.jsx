@@ -22,8 +22,11 @@ const sortbyData = [
     value: "primary_release_date.desc",
     label: "Release Date Descending",
   },
-  { value: "primary_release_date.asc", label: "Release Date Ascending" },
-  { value: "original_title.asc", label: "Title (A-Z)" },
+  {
+    value: "primary_release_date.asc",
+    label: "Release Date Ascending",
+  },
+  // { value: "original_title.asc", label: "Title (A-Z)" },
 ];
 // fillter
 const Explore = () => {

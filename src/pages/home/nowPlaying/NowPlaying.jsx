@@ -11,14 +11,14 @@ const NowPlaying = () => {
   const [endpoint, setEndpoint] = useState("airing_today");
   const { data, loading } = useFetch(`/tv/${endpoint}`);
   const onTabChange = (tab) => {
-    setEndpoint(tab === "Tv channel" ? "airing_today" : "on_the_air");
+    setEndpoint(tab === "News" ? "airing_today" : "on_the_air");
   };
 
   return (
     <div className="carouselSection">
       <ContentWrapper>
         <span className="carouselTitle">TV shows </span>
-        <SwitchTabs data={["Tv channel", "Talk show"]} onTabChange={onTabChange} />
+        <SwitchTabs data={["News", "Talk show"]} onTabChange={onTabChange} />
       </ContentWrapper>
       <Carousel data={data?.results} loading={loading} />
     </div>

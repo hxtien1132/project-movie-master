@@ -9,33 +9,30 @@ const Footer = () => {
   return (
     <footer className="footer">
       <ContentWrapper>
-        <ul className="menuItems">
-          <li className="menuItem">Terms Of Use</li>
-          <li className="menuItem">Privacy-Policy</li>
-          <li className="menuItem">About</li>
-          <li className="menuItem">Blog</li>
-          <li className="menuItem">FAQ</li>
-        </ul>
         <div className="contacts">
           <ul className="contact">
+            <li className="item">Privacy-Policy</li>
             <li>FAQ</li>
             <li>investor Relations</li>
             <li>Privacy</li>
             <li>Speed Test</li>
           </ul>
           <ul className="contact">
+            <div className="item">About</div>
             <li>Help center</li>
             <li>jobs</li>
             <li>Cookie Preferences</li>
             <li>Legal Notices</li>
           </ul>
           <ul className="contact">
+            <li className="item">Blog</li>
             <li>Account</li>
             <li>Ways to Watch</li>
             <li>Corporate Infomation</li>
             <li>Only on netflex</li>
           </ul>
           <ul className="contact">
+            <li className="item">FAQ</li>
             <li>Media center</li>
             <li>Terms of Use</li>
             <li>Contact us</li>
