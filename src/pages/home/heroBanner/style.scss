@@ -1,108 +1,139 @@
 @import "../../../mixins.scss";
 
+.hero-wrap {
+  margin-bottom: 50px;
+}
 .heroBanner {
+  width: 100%;
+  height: 450px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  @include md {
+    height: 800px;
+  }
+
+  .backdrop-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 450px;
-    background-color: var(--black);
-    display: flex;
-    align-items: center;
-    position: relative;
-    @include md {
-        height: 700px;
-    }
-    .backdrop-img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+      img {
         width: 100%;
         height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0.5;
-        overflow: hidden;
-        .lazy-load-image-background {
-            width: 100%;
-            height: 100%;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .heroBannerContent {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    bottom: 50px;
+    left: 20px;
+    @include md {
+      height: 200px;
+      width: 500px;
+      bottom: 240px;
+      left: 220px;
+    }
+    .posterBlock {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      .title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        @include md {
+          margin-bottom: 20px;
+          font-size: 50px;
+          font-weight: 700;
         }
-    }
-    .opacity-layer {
-        width: 100%;
-        height: 250px;
-        background: linear-gradient(
-            180deg,
-            rgba(4, 21, 45, 0) 0%,
-            #04152d 79.17%
-        );
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-    .heroBannerContent {
+      }
+      .description {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: white;
-        text-align: center;
+        flex-wrap: wrap;
+        font-size: 10px;
+        gap: 10px;
+        margin-bottom: 12px;
+        @include md {
+          gap: 25px;
+          flex-wrap: nowrap;
+          font-size: 20px;
+          margin-bottom: 50px;
+        }
+      }
+      .buttons {
+        display: flex;
+        gap: 20px;
+        @include md {
+          gap: 60px;
+        }
+        .btn {
+          cursor: pointer;
+          border: none;
+          color: white;
+          outline: none;
+          border-radius: 30px 30px 30px 30px;
+          font-size: 10px;
+          width: 90px;
+          height: 24px;
+
+          @include md {
+            font-size: 20px;
+            width: 200px;
+            height: 60px;
+          }
+        }
+        .btn-wn {
+          background: #6f5cf1;
+        }
+        .btn-wt {
+          background-color: transparent;
+          border: 3px solid white;
+        }
+      }
+      .circleRating {
+        width: 40px;
+        height: 40px;
         position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-        .title {
-            font-size: 50px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            @include md {
-                margin-bottom: 0;
-                font-size: 90px;
-            }
+        top: 30px;
+        background-color: white;
+        flex-shrink: 0;
+        @include md {
+          width: 50px;
+          height: 50px;
         }
-        .subTitle {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 40px;
-            @include md {
-                font-size: 24px;
-            }
+      }
+      .genres {
+        display: none;
+        position: relative;
+        @include md {
+          display: flex;
+          flex-flow: wrap;
+          justify-content: flex-end;
         }
-        .searchInput {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            input {
-                width: calc(100% - 100px);
-                height: 50px;
-                background-color: white;
-                outline: 0;
-                border: 0;
-                border-radius: 30px 0 0 30px;
-                padding: 0 15px;
-                font-size: 14px;
-                @include md {
-                    width: calc(100% - 150px);
-                    height: 60px;
-                    font-size: 20px;
-                    padding: 0 30px;
-                }
-            }
-            button {
-                width: 100px;
-                height: 50px;
-                background: var(--gradient);
-                color: white;
-                outline: 0;
-                border: 0;
-                border-radius: 0 30px 30px 0;
-                font-size: 16px;
-                cursor: pointer;
-                @include md {
-                    width: 150px;
-                    height: 60px;
-                    font-size: 18px;
-                }
-            }
-        }
+      }
     }
+  }
 }

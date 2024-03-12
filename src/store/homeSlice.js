@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const homeSlice = createSlice({
-    name: "home",
-    initialState: {
-        url: {},
-        genres: {},
+  name: "home",
+  initialState: {
+    url: {}, //{backdrop,poster,profile}
+    genres: {}, //thể loại[movies,tvshows]
+  },
+  reducers: {
+    getApiConfiguration: (state, action) => {
+      state.url = action.payload;
     },
-    reducers: {
-        getApiConfiguration: (state, action) => {
-            state.url = action.payload;
-        },
-        getGenres: (state, action) => {
-            state.genres = action.payload;
-        },
+    getGenres: (state, action) => {
+      state.genres = action.payload;
     },
+  },
 });
 
 // Action creators are generated for each case reducer function

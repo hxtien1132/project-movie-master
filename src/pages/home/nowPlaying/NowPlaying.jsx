@@ -1,3 +1,4 @@
+// fetchDataFromApi(`/movie/now_playing`).then((res) => console.log(res));
 import React, { useState } from "react";
 
 import Carousel from "../../../components/carousel/Carousel";
@@ -6,10 +7,9 @@ import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
 
 import useFetch from "../../../hooks/useFetch";
 
-const Trending = () => {
+const NowPlaying = () => {
   const [endpoint, setEndpoint] = useState("day");
-  const [genre, setGetre] = useState("movie");
-  const { data, loading } = useFetch(`/trending/${genre}/${endpoint}`);
+  const { data, loading } = useFetch(`/tv/airing_today`);
   const onTabChange = (tab) => {
     setEndpoint(tab === "Day" ? "day" : "week");
   };
@@ -17,12 +17,12 @@ const Trending = () => {
   return (
     <div className="carouselSection">
       <ContentWrapper>
-        <span className="carouselTitle">Trending</span>
-        <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} />
+        <span className="carouselTitle">TV shows airing today.</span>
+        {/* <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} /> */}
       </ContentWrapper>
       <Carousel data={data?.results} loading={loading} />
     </div>
   );
 };
 
-export default Trending;
+export default NowPlaying;
