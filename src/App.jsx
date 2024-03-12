@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { fetchDataFromApi } from "./utils/api";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
 const Header = React.lazy(() => import("./components/header/Header"));
 const Footer = React.lazy(() => import("./components/footer/Footer"));
@@ -11,7 +11,7 @@ const Home = React.lazy(() => import("./pages/home/Home"));
 const Details = React.lazy(() => import("./pages/details/Details"));
 const SearchResult = React.lazy(() => import("./pages/searchResult/SearchResult"));
 const Explore = React.lazy(() => import("./pages/explore/Explore"));
-const PageNotFound = React.lazy(() => import("./pages/404/pageNotFound"));
+const PageNotFound = React.lazy(() => import("./pages/Found/pageNotFound"));
 
 function App() {
   const dispatch = useDispatch();
