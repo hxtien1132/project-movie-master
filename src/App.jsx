@@ -11,7 +11,7 @@ const Home = React.lazy(() => import("./pages/home/Home"));
 const Details = React.lazy(() => import("./pages/details/Details"));
 const SearchResult = React.lazy(() => import("./pages/searchResult/SearchResult"));
 const Explore = React.lazy(() => import("./pages/explore/Explore"));
-const PageNotFound = React.lazy(() => import("./pages/Found/pageNotFound"));
+const PageNotFound = React.lazy(() => import("./pages/Found/PageNotFound"));
 
 function App() {
   const dispatch = useDispatch();
