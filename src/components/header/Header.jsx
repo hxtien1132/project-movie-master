@@ -20,8 +20,7 @@ const Header = () => {
   const location = useLocation();
   const nodeRef = useRef(null);
   const node2Ref = useRef(null);
-  // const { show: showSearch, setShow: setShowSearch, nodeRef } = useClickOutSide();
-  const clickOutside = () => {};
+  // const { show: showSearch, setShow: setShowSearch, nodeRef ,nodeRef2} = useClickOutSide();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,6 +30,7 @@ const Header = () => {
     if (window.scrollY > 200) {
       if (window.scrollY > lastScrollY && !mobileMenu) {
         setShow("hide");
+        setShowSearch(false);
       } else {
         setShow("show");
       }

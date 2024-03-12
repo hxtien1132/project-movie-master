@@ -12,10 +12,10 @@ const Home = () => {
   return (
     <div className="homePage">
       <HeroBanner />
-      <Nowplaying />
       <Trending />
       <Popular />
       <TopRated />
+      <Nowplaying />
     </div>
   );
 };

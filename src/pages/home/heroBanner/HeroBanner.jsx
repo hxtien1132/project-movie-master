@@ -2,13 +2,15 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./style.scss";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import dayjs from "dayjs";
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import { fetchDataFromApi } from "../../../utils/api";
+import "swiper/swiper-bundle.css";
+
 const HeroBanner = () => {
   const [endpoint, setEndpoint] = useState("movie");
   const [background, setBackground] = useState("");
@@ -35,13 +37,7 @@ const HeroBanner = () => {
   //   }
   // };
 
-  return (
-    <div className="heroBanner">
-      <Swiper grabCursor={true} slidesPerView={"auto"}>
-        {data && <Item data={data} />}
-      </Swiper>
-    </div>
-  );
+  return <div className="heroBanner">{data && <Item data={data} />}</div>;
 };
 
 const Item = (props) => {
@@ -55,7 +51,7 @@ const Item = (props) => {
     setShow(true);
   };
   fetchDataFromApi(`/movie/${data?.id}/videos`).then((res) => {
-    setVideoId(res.results?.[1]?.key);
+    setVideoId(res.results?.[1]?.key || null);
   });
   return (
     <>
@@ -107,6 +103,8 @@ const Item = (props) => {
 };
 
 // const HeroBanner = () => {
+//   SwiperCore.use([Autoplay]);
+
 //   const [endpoint, setEndpoint] = useState("movie");
 //   const [background, setBackground] = useState("");
 //   const [data, setData] = useState([]);
@@ -114,7 +112,7 @@ const Item = (props) => {
 //   useEffect(() => {
 //     fetchDataFromApi(`/${endpoint}/upcoming`)
 //       .then((res) => {
-//         setData(res?.results.slice(0, 5));
+//         setData(res?.results.slice(0, 1));
 //       })
 //       .catch((err) => console.log(err));
 //   }, []);
@@ -126,11 +124,11 @@ const Item = (props) => {
 //   return (
 //     <div className="hero-wrap">
 //       <Swiper
+//         modules={[Autoplay]}
 //         grabCursor={true}
 //         spaceBetween={50}
 //         slidesPerView={1}
-//         onSlideChange={() => console.log("slide change")}
-//         onSwiper={(swiper) => console.log(swiper)}
+//         scrollbar={{ draggable: true }}
 //       >
 //         {data.length > 0 &&
 //           data.map((item) => (
@@ -159,10 +157,10 @@ const Item = (props) => {
 //   };
 
 //   return (
-//     <div className="heroBanner" style={{ backgroundImage: `url(${bg})` }}>
-//       {/* <div className="backdrop-img">
+//     <div className="heroBanner">
+//       <div className="backdrop-img">
 //         <Img src={bg} className="img" />
-//       </div> */}
+//       </div>
 //       <ContentWrapper>
 //         <div className="opacity-layer"></div>
 //         <div className="heroBannerContent">
