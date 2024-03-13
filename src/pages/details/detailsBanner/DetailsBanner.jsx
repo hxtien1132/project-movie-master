@@ -38,16 +38,19 @@ const DetailsBanner = ({ video, crew }) => {
           {!!data && (
             <React.Fragment>
               <div className="backdrop-img">
-                <Img src={url.backdrop + data.backdrop_path} />
+                <Img src={(url.backdrop + data.backdrop_path).toString()} />
               </div>
               <div className="opacity-layer"></div>
               <ContentWrapper>
                 <div className="content">
                   <div className="left">
                     {data.poster_path ? (
-                      <Img className="posterImg" src={url.backdrop + data.poster_path} />
+                      <Img
+                        className="posterImg"
+                        src={(url.backdrop + data.poster_path).toString()}
+                      />
                     ) : (
-                      <Img className="posterImg" src={PosterFallback} />
+                      <Img className="posterImg" src={PosterFallback.toString()} />
                     )}
                   </div>
                   <div className="right">

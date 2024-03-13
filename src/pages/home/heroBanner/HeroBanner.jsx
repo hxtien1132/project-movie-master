@@ -47,7 +47,7 @@ const HeroBanner = () => {
       {data && (
         <>
           <div className="backdrop-img">
-            <Img src={background} className="img" />
+            <Img src={background.toString()} className="img" />
           </div>
           <div className="opacity-layer"></div>
           <ContentWrapper>
